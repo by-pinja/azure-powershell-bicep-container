@@ -9,12 +9,7 @@ podTemplate(label: pod.label,
         stage('Checkout') {
             checkout scm
         }
-        stage('Test building') {
-            sh """
-                docker build .
-            """
-        }
-        stage('Publish'){
+        stage('Build & Publish'){
             publishContainerToGcr("azure-powershell-bicep")
             publishTagToDockerhub("azure-powershell-bicep")
         }
