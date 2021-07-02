@@ -14,7 +14,7 @@ podTemplate(label: pod.label,
         }
         stage('Publish'){
             publishContainerToGcr("azure-powershell-bicep")
-            publishTagToDockerhub("azure-powershell-bicep");
+            publishTagToDockerhub("azure-powershell-bicep")
         }
     }
 }
