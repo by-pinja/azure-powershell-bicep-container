@@ -10,7 +10,9 @@ podTemplate(label: pod.label,
             checkout scm
         }
         stage('Test building') {
-            docker build .
+            sh """
+                docker build .
+            """
         }
         stage('Publish'){
             publishContainerToGcr("azure-powershell-bicep")
